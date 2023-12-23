@@ -1,0 +1,101 @@
+{
+    "max_episodes": 1000,
+    "max_time": 1000,
+    "target_score": 30.0,
+    "agent": {
+      "type": "ddpg",
+      "buffer_size": 1000000,
+      "batch_size": 1024,
+      "gamma": 0.95,
+      "tau": 0.001,
+      "lr_critic": 0.0001,
+      "lr_actor": 0.001,
+      "update_every": 5,
+      "actor": {
+        "layers": [
+          {
+            "type": "linear",
+            "arguments": [
+              33,
+              128
+            ]
+          },
+          {
+            "type": "batchnorm",
+            "arguments": [
+              128
+            ]
+          },
+          {
+            "type": "relu",
+            "arguments": []
+          },
+          {
+            "type": "linear",
+            "arguments": [
+              128,
+              256
+            ]
+          },
+          {
+            "type": "relu",
+            "arguments": []
+          },
+          {
+            "type": "linear",
+            "arguments": [
+              256,
+              4
+            ]
+          },
+          {
+            "type": "tanh",
+            "arguments": []
+          }
+        ]
+      },
+      "critic": {
+        "layers": [
+          {
+            "type": "linear",
+            "arguments": [
+              33,
+              128
+            ]
+          },
+          {
+            "type": "batchnorm",
+            "arguments": [
+              128
+            ]
+          },
+          {
+            "type": "relu",
+            "arguments": []
+          },
+          {
+            "type": "linear",
+            "arguments": [
+              132,
+              256
+            ]
+          },
+          {
+            "type": "relu",
+            "arguments": []
+          },
+          {
+            "type": "linear",
+            "arguments": [
+              256,
+              1
+            ]
+          },
+          {
+            "type": "tanh",
+            "arguments": []
+          }
+        ]
+      }
+    }
+  }
